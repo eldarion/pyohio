@@ -2,12 +2,11 @@ from django import forms
 
 from markitup.widgets import MarkItUpWidget
 
-from pyohio.proposals.models import TalkProposal, TutorialProposal
-from pyohio.proposals.models import OpenSpaceProposal
+from .models import OpenSpaceProposal, TalkProposal, TutorialProposal
 
 
 class ProposalForm(forms.ModelForm):
-    
+
     def clean_description(self):
         value = self.cleaned_data["description"]
         if len(value) > 400:
